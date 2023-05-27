@@ -1,0 +1,14 @@
+@import "../../../root.scss";
+
+.myButton {
+   outline: 1px solid black;
+   border-radius: 2px;
+   padding: 7px 20px;
+   transition: all 0.3s;
+
+   &:hover {
+        background-color: black;
+        color: #fff
+   }
+}
+  

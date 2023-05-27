@@ -1,4 +1,18 @@
 @import "../../root.scss";
 
 .loginPage {
+
+    .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    margin-top: 5%;
+
+    }
+
+    .img {
+        border-radius: 2px;
+        width: 300px;
+    }
 }
