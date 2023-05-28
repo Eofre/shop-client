@@ -5,10 +5,12 @@
    border-radius: 2px;
    padding: 7px 20px;
    transition: all 0.3s;
+   background-color: black;
+   color: #fff;
 
    &:hover {
-        background-color: black;
-        color: #fff
+      background-color: #fff;
+      color: black;
    }
 }
   

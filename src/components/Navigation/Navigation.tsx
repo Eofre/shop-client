@@ -1,6 +1,5 @@
 import { FC } from "react";
 import classes from "./Navigation.module.scss";
-
 import { navigationLinks } from "../../data/navigationLinks";
 import { Link } from "react-router-dom";
 import { CartLink } from "../CartLink";

@@ -6,15 +6,10 @@ export interface INavigationLink {
 
   export interface IUser {
   username: string
-
   password: string
-
   fullName: string
-
   email: string
-
   numberPhone: string;
-
   address: string
 }  
 
@@ -28,6 +23,11 @@ export interface ILoginResponse {
   };
 }
 
+export interface IProductCategory {
+  id:number,
+  name: string
+}
+
 export interface IProduct {
   id: number
   name: string,
@@ -35,13 +35,22 @@ export interface IProduct {
   price: string,
   image: string,
   quantityInStock: number,
-  idProductCategory: number,
-  createdAt: string,
-  updatedAt: string
+  productCategory: IProductCategory,
 }
 
 export interface IProductState {
   products: IProduct[];
   loading: boolean;
   error: string | null;
+}
+
+export interface ILoginState {
+  user: IUser | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export interface IUserLogin {
+  username: string,
+  password: string
 }

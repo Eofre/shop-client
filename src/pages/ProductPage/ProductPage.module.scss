@@ -1,0 +1,43 @@
+@import "../../root.scss";
+
+.productPage {
+
+    .wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .content {
+        display: flex;
+        gap: 50px;
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 330px;
+        }
+
+        .right {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+    }
+
+    .price {
+        font-size: 25px;
+    }
+
+    .name {
+        font-size: 20px;
+    }
+    .img {
+        border-radius: 5px;
+    }
+    .img {
+        height: 360px;
+        width: 330px;
+    }
+}
