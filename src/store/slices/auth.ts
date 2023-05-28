@@ -3,15 +3,8 @@ import axios from "../../api/axiosInstance";
 import { ILoginState, IUserLogin } from "../../types/types";
 
 export const fetchLoginUser = createAsyncThunk('login/fetchLoginUser', async (userData: IUserLogin) => {
-    try {
-        const { data } = await axios.post('user/login', userData, { withCredentials: true });
-        return data;
-      } catch (error: any) {
-    //     if (error.response.status === 401) {
-    //         throw new Error('Invalid username or password.');
-    //       }
-    //       throw new Error('Failed to login.');
-      }
+    const { data } = await axios.post('user/login', userData, { withCredentials: true,});
+    return data;
   });
 
 export const fetchLogoutUser = createAsyncThunk(
@@ -22,11 +15,20 @@ export const fetchLogoutUser = createAsyncThunk(
     }
   );
 
-const initialState: ILoginState = {
-    user: null,
-    loading: true,
-    error: null,
-  };
+export const fetchLoginCheck = createAsyncThunk(
+    'loginCheck/fetchLoginCheck',
+    async () => {
+      const { data } = await axios.get('user/login-check', { withCredentials: true,});
+      return data;
+    }
+  );
+
+
+  const initialState: ILoginState = {
+      user: null,
+      loading: false,
+      error: null,
+    };
 
   
 const authSlice = createSlice({
@@ -55,9 +57,21 @@ const authSlice = createSlice({
             state.loading = false;
             state.user = null;
         })
-          .addCase(fetchLogoutUser.rejected, (state, action) => {
+        .addCase(fetchLogoutUser.rejected, (state, action) => {
             state.loading = false;
             state.error = action.error.message || 'Failed to logout.';
+        })
+        .addCase(fetchLoginCheck.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(fetchLoginCheck.fulfilled, (state, action) => {
+          state.loading = false;
+          state.user = action.payload;
+        })
+        .addCase(fetchLoginCheck.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.error.message || 'Failed to check login status.';
         });
     },
   });
