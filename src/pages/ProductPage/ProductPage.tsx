@@ -25,34 +25,32 @@ export const ProductPage: FC<ProductPageProps> = () => {
 
   return (
     <section className={classes.productPage}>
-      <Container>
-        {product ? (
-          <div className={classes.wrapper}>
-            <h1 className={classes.name}>{product.name}</h1>
-            <div className={classes.content}>
-              <div className={classes.left}>
-                <img
-                  className={classes.img}
-                  src={product.image}
-                  alt="фото товара"
-                />
-                <div className={classes.description}>
-                  <h3>Описание:</h3>
-                  <p>{product.description}</p>
-                </div>
-              </div>
-              <div className={classes.right}>
-                <h3 className={classes.price}>{product.price} ₽</h3>
-                <p>Категория: {product.productCategory.name}</p>
-                <p>Кол-во в наличии: {product.quantityInStock}</p>
-                <MyButton>Добавить в корзину</MyButton>
+      {product ? (
+        <div className={classes.wrapper}>
+          <h1 className={classes.name}>{product.name}</h1>
+          <div className={classes.content}>
+            <div className={classes.left}>
+              <img
+                className={classes.img}
+                src={product.image}
+                alt="фото товара"
+              />
+              <div className={classes.description}>
+                <h3>Описание:</h3>
+                <p>{product.description}</p>
               </div>
             </div>
+            <div className={classes.right}>
+              <h3 className={classes.price}>{product.price} ₽</h3>
+              <p>Категория: {product.productCategory.name}</p>
+              <p>Кол-во в наличии: {product.quantityInStock}</p>
+              <MyButton>Добавить в корзину</MyButton>
+            </div>
           </div>
-        ) : (
-          <>Товар не найден</>
-        )}
-      </Container>
+        </div>
+      ) : (
+        <>Товар не найден</>
+      )}
     </section>
   );
 };

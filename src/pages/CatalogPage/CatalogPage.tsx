@@ -26,14 +26,12 @@ export const CatalogPage: FC<CatalogPageProps> = () => {
 
   return (
     <section className={classes.catalogPage}>
-      <Container>
-        <div className={classes.wrapper}>
-          <div className={classes.searchBar}>
-            <SearchBar />
-          </div>
-          <ProductList products={products} />
+      <div className={classes.wrapper}>
+        <div className={classes.searchBar}>
+          <SearchBar />
         </div>
-      </Container>
+        <ProductList products={products} />
+      </div>
     </section>
   );
 };

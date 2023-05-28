@@ -5,6 +5,8 @@ import { LoginForm } from "../../components/LoginForm";
 import { useAppDispatch } from "../../hooks/useAppDispatch";
 import { fetchLoginUser } from "../../store/slices/auth";
 import { IUserLogin } from "../../types/types";
+import { useAuthCheck } from "../../hooks/useAuthCheck";
+import { Navigate } from "react-router-dom";
 
 interface LoginPageProps {}
 
@@ -15,6 +17,12 @@ export const LoginPage: FC<LoginPageProps> = () => {
     dispatch(fetchLoginUser(userData));
     console.log(userData);
   };
+
+  const auth = useAuthCheck();
+
+  if (auth) {
+    return <Navigate to="/" />;
+  }
 
   return (
     <section className={classes.loginPage}>
