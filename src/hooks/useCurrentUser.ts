@@ -3,13 +3,8 @@ import { useAppDispatch } from "./useAppDispatch";
 import { useAppSelector } from "./useAppSelector";
 import { fetchLoginCheck } from "../store/slices/auth";
 
-export const useAuthCheck = () => {;
-  const dispatch = useAppDispatch();
+export const useCurrentUser = () => {
   const user = useAppSelector((state) => state.auth.user);
-  
-  useEffect(() => {
-    dispatch(fetchLoginCheck());
-  }, []);
 
-    return Boolean(user);
+    return user;
   };

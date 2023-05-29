@@ -5,6 +5,7 @@ export interface INavigationLink {
   }
 
   export interface IUser {
+  userId: string,
   username: string
   password: string
   fullName: string
@@ -53,4 +54,16 @@ export interface ILoginState {
 export interface IUserLogin {
   username: string,
   password: string
+}
+
+export interface IShoppingCart {
+  id: string | number,
+  userId: string,
+  count: number,
+  product: IProduct
+}
+
+export interface IAddToCartDto {
+  userId: string | number,
+  productId: string | number,
 }

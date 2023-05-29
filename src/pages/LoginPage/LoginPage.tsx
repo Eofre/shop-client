@@ -15,14 +15,13 @@ export const LoginPage: FC<LoginPageProps> = () => {
 
   const handleLogin = (userData: IUserLogin) => {
     dispatch(fetchLoginUser(userData));
-    console.log(userData);
   };
 
-  const auth = useAuthCheck();
+  // const auth = useAuthCheck();
 
-  if (auth) {
-    return <Navigate to="/" />;
-  }
+  // if (auth) {
+  //   return <Navigate to="/" />;
+  // }
 
   return (
     <section className={classes.loginPage}>

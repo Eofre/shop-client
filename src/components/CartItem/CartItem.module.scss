@@ -1,0 +1,40 @@
+@import "../../root.scss";
+
+.cartItem {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #b3b3b3;
+
+    .bottom {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .info {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+    }
+
+    .top {
+        display: flex;
+        gap: 15px;
+    }
+    .name {
+        max-width: 350px;
+    }
+
+    .img {
+        height: 150px;
+        border-radius: 3px;
+    }
+
+    .count {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+    }
+}

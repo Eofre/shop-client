@@ -6,6 +6,7 @@ import { CartPage } from "../../pages/CartPage";
 import { ProductPage } from "../../pages/ProductPage";
 import { Layout } from "../Layout";
 import { RequireAuth } from "../../hoc/RequireAuth";
+import { LoginAuth } from "../../hoc/LoginAuth";
 
 interface AppRouterProps {}
 
@@ -38,7 +39,14 @@ export const AppRouter: FC<AppRouterProps> = () => {
           }
         />
       </Route>
-      <Route path="/login" element={<LoginPage />} />
+      <Route
+        path="/login"
+        element={
+          <LoginAuth>
+            <LoginPage />
+          </LoginAuth>
+        }
+      />
     </Routes>
   );
 };
